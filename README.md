@@ -1,6 +1,6 @@
 # Voice-Controlled-Humanoid-Robot-
 Voice Controlled Humanoid Robot is mainly built to Identify the voice recognizing system in the machines and control the robot using Google assistant through the mobile.
-🤖 IoT-Based Humanoid Robot
+
 
 # Project Overview
 
@@ -63,5 +63,100 @@ Acts like a basic talk-back assistant for interactive demonstrations.
 Mounted camera module for live video streaming.  
 Enables remote monitoring of surroundings through the IoT app.
 
+# 🔧 Development Process
+
+**Mechanical Design**
+
+Used a male mannequin as the robot’s physical structure.
+
+Added a four-wheel DC motor base for movement.
+
+Designed arms, fingers, and joints to move through servo actuation.
+
+Fabricated brackets and mounts using metal and acrylic sheets.
+
+**Electronics Integration**
+
+Assembled and soldered all control circuits manually.
+
+Configured Arduino UNO for motion and servo control.
+
+Interfaced NodeMCU (ESP8266) for wireless IoT connectivity.
+
+Integrated IR and ultrasonic sensors for navigation and obstacle detection.
+
+Added a voice module for interactive talk-back responses.
+
+**Software Implementation**
+
+Programmed using Arduino IDE with modular functions for motion, voice, and IoT tasks.
+
+Developed a custom Blynk IoT dashboard for remote control via smartphone.
+
+Calibrated all servos and motors for smooth, synchronized movement.
+
+**Testing & Optimization**
+
+Conducted repeated field tests for motion accuracy and communication stability.
+
+Tuned servo angles for natural human-like movement.
+
+Debugged issues in power distribution, Wi-Fi range, and signal interference.
+
+Verified all operating modes — IoT control and autonomous navigation.
+
+**Challenges Faced**
+
+Limited funding required creative reuse of components and low-cost solutions.
+
+Frequent motor burns, wiring faults, and circuit instability during early tests.
+
+Difficulty maintaining Wi-Fi connectivity for consistent IoT response.
+
+Synchronizing multiple systems (IoT, voice, sensors, and motion) without delays.
+
+Despite these hurdles, continuous teamwork and persistence led to a fully functional humanoid prototype.
+
+# 🏆 Achievements
+
+Presented at multiple National-Level Technical Events.
+
+Secured Second Prize at Aavishkar National-Level Technical Fest.
+
+Appreciated by the Department of Mechatronics for innovation and integration.
+
+# 💡 Learning Outcomes
+
+Hands-on experience in IoT integration, robotics motion control, and sensor interfacing.
+
+Strong understanding of embedded system design and human–robot interaction.
+
+Enhanced teamwork, leadership, and problem-solving abilities through real-world prototyping.
+
+# 🧰 Future Improvements
+
+Integrate AI-based speech recognition and computer vision for intelligent interaction.
+
+Upgrade control to Raspberry Pi with ROS for higher autonomy and mapping.
+
+Implement self-charging and path-planning (SLAM) for full autonomous mobility.
+
+Add gesture and voice control with cloud connectivity for remote teleoperation.
+
+# 👥 Team Members
+
+Ajay Mannolkar — Team Leader  
+Nilesh Chougule  
+Mahadev Jadhav  
+Mallikarjun Madapaki  
+Kaustubh Melge  
+Amrut Marihal  
+Bikashmurthy Bhandi  
+Praveen Naik  
+Vaibhav Shreyakar  
+
+
+
+Guides: Mr. Amey Sir and Mr. Suraj Sir
 
 
