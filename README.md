@@ -117,6 +117,76 @@ Synchronizing multiple systems (IoT, voice, sensors, and motion) without delays.
 
 Despite these hurdles, continuous teamwork and persistence led to a fully functional humanoid prototype.
 
+# Circuit Diagram 
+
+Base Circuit Design
+
+This circuit controls the robot’s base movement, enabling line following, obstacle avoidance, and IoT-controlled driving.
+
+Main Components
+
+Arduino UNO (Left Section) – Controls line following & obstacle avoidance
+
+NodeMCU (Right Section) – Enables IoT-based control through a mobile app
+
+L298 Motor Drivers (2 Units) – Drive the DC motors on the 4-wheel base
+
+IR Sensors – Detect black and white lines for line following
+
+Ultrasonic Sensor – Detects obstacles and measures distance
+
+12V Batteries (2 Units) – Power supply for Arduino, NodeMCU, and motor drivers
+
+🔹 Connection Breakdown
+🧭 Line Following and Obstacle Avoidance (Left Section – Arduino UNO)
+
+IR Sensors → Arduino UNO:
+
+The OUT pins of the two IR sensors connect to the digital pins (e.g., D2, D3) of the Arduino.
+
+Used to sense the track (black/white line).
+
+Ultrasonic Sensor → Arduino UNO:
+
+Trig pin → D9, Echo pin → D10 of Arduino.
+
+Measures distance and prevents collision with objects.
+
+Arduino UNO → L298 Motor Driver (Left):
+
+Digital pins D5, D6, D7, D8 control IN1–IN4 of the L298 driver.
+
+Enables direction and speed control of two DC motors (left side).
+
+L298 Motor Driver → Motors:
+
+Two DC motors are connected at Output1 & Output2 terminals.
+
+Power Supply:
+
+12V battery connected to L298’s Vcc and Arduino’s Vin (via regulated input).
+
+📶 IoT-Based Base Control (Right Section – NodeMCU)
+
+NodeMCU → L298 Motor Driver (Right):
+
+Digital pins D1, D2, D3, D4 connect to IN1–IN4 of the second L298 driver.
+
+Controls the second pair of DC motors (right side).
+
+Power Supply:
+
+Separate 12V battery powers the L298 driver and NodeMCU (through onboard 5V regulator).
+
+⚡ Working Principle
+
+The Arduino handles autonomous functions (line following or obstacle avoidance).
+
+The NodeMCU takes over when IoT mode is enabled, controlling the motors wirelessly via the mobile app.
+
+Only one mode (IoT or Autonomous) is active at a time, selected by a switch or program condition.
+
+
 # 🏆 Achievements
 
 Presented at multiple National-Level Technical Events.
