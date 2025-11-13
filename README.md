@@ -189,6 +189,154 @@ The NodeMCU takes over when IoT mode is enabled, controlling the motors wireless
 Only one mode (IoT or Autonomous) is active at a time, selected by a switch or program condition.
 
 
+![Main circuit diagram design](Slide10.JPG)
+
+**POWER DISTRIBUTION**
+
+12V Battery → Buck Converter
+
+The 12V Battery powers the system.
+
+Red wire (positive) from battery → VIN of Buck Converter.
+
+Black wire (negative) from battery → GND of Buck Converter.
+
+Buck Converter → Servo Motor Driver (PCA9685)
+
+Buck converter steps 12V to 5V output.
+
+5V Output (red) → V+ terminal of PCA9685 servo driver
+
+GND Output (black) → GND terminal of PCA9685
+
+🔹 This 5V is used for all servo motors.
+
+**PCA9685 SERVO DRIVER → SERVO MOTORS**
+
+The PCA9685 has 16 channels (0–15).
+
+Each channel has 3 pins: GND, V+, Signal.
+
+Each servo motor has 3 wires:
+
+Brown/Black → GND
+
+Red → V+ (5V)
+
+Orange/Yellow → Signal
+
+In the diagram:
+
+Servo motors 1–8 are connected to channels 0–7.
+
+Their signal wires are connected to the green pins on PCA9685.
+
+**PCA9685 SERVO DRIVER → Arduino UNO**
+
+The PCA9685 communicates using I²C.
+
+I²C Connections:
+
+PCA9685 SCL → Arduino A5 (blue wire)
+
+PCA9685 SDA → Arduino A4 (green wire)
+
+PCA9685 VCC → Arduino 5V
+
+PCA9685 GND → Arduino GND
+
+Purpose:
+Arduino controls all servos via I²C → no need for many PWM pins.
+
+**ARDUINO UNO → NODEMCU**
+
+Communication lines (purple/black wires):
+
+Arduino TX → NodeMCU RX
+
+Arduino RX → NodeMCU TX
+
+Arduino GND → NodeMCU GND
+
+Purpose:
+NodeMCU sends commands via WiFi → Arduino executes servo movements.
+
+**SD CARD MODULE → ARDUINO UNO**
+
+The SD module uses SPI communication:
+
+VCC → 5V on Arduino
+
+GND → GND
+
+MISO → Pin 12
+
+MOSI → Pin 11
+
+SCK → Pin 13
+
+CS → Pin 10
+
+Purpose:
+Arduino reads audio files from SD card for the voice playback.
+
+**PAM8403 AUDIO AMPLIFIER → SPEAKER**
+
+The PAM8403 has:
+
+5V input
+
+Left/Right audio input
+
+Speaker output
+
+Connections in diagram:
+
+5V from SD card module → 5V input of PAM8403
+
+GND from SD card module → PAM8403 GND
+
+Audio OUT of SD card (or voice module) → IN+ of PAM8403
+
+PAM8403 output L+ / L– → Speaker terminals
+
+Purpose:
+Amplifies the audio stored on SD card.
+
+**VOICE RECOGNITION & TALK-BACK MODULE**
+
+Connections shown:
+
+Module GND → Buck converter GND
+
+Module VCC → Buck converter 5V
+
+Signal OUT → NodeMCU digital pin
+
+Audio OUT → PAM8403 input
+
+Purpose:
+Detects voice commands and sends trigger signals to NodeMCU/Arduino.
+
+**TOTAL SYSTEM FLOW (Simplified)**
+
+Power Flow:
+
+12V Battery → Buck Converter → 5V
+
+PCA9685, Servo Motors, SD Module, Audio Amp, Voice Module
+
+**Communication Flow**
+
+NodeMCU (WiFi control) ↔ Arduino (Main controller)
+Arduino ↔ PCA9685 (servo control)
+Arduino ↔ SD Card (audio files)
+Voice Module → NodeMCU (voice command trigger)
+
+**Audio Flow**
+
+SD Card → PAM8403 → Speaker
+
 # 🏆 Achievements
 
 Presented at multiple National-Level Technical Events.
