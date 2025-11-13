@@ -119,6 +119,8 @@ Despite these hurdles, continuous teamwork and persistence led to a fully functi
 
 # Circuit Diagram 
 
+![base circuit diagram design](Slide10.JPG)
+
 Base Circuit Design
 
 This circuit controls the robot’s base movement, enabling line following, obstacle avoidance, and IoT-controlled driving.
