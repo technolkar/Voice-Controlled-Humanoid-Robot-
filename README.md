@@ -119,7 +119,7 @@ Despite these hurdles, continuous teamwork and persistence led to a fully functi
 
 # Circuit Diagram 
 
-![base circuit diagram design](Slide10.JPG)
+![base circuit diagram design](Slide11.JPG)
 
 Base Circuit Design
 
