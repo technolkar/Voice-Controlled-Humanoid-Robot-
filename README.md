@@ -337,6 +337,8 @@ Voice Module → NodeMCU (voice command trigger)
 
 SD Card → PAM8403 → Speaker
 
+![Blcok Diagram Layout](Blockdiagram.JPG)
+
 # 🏆 Achievements
 
 Presented at multiple National-Level Technical Events.
