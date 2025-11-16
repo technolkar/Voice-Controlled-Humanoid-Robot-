@@ -339,6 +339,23 @@ SD Card → PAM8403 → Speaker
 
 ![Blcok Diagram Layout](Blockdiagram.JPG)
 
+The block diagram represents the complete working architecture of the robot, showing how different hardware components interact to perform movement, sensing, communication, and audio functions. The system begins with the user, who controls the robot through a mobile application. This application sends commands over the internet, which are received by the NodeMCU board via WiFi. The NodeMCU acts as the communication bridge and forwards these received commands to the Arduino UNO, which is the main controller of the entire system.
+
+Inside the controller block, the Arduino UNO and NodeMCU work together. The Arduino takes responsibility for processing incoming commands, controlling motors and servos, reading sensors, and managing the audio system. The NodeMCU ensures wireless communication between the robot and the user through the mobile application.
+
+The power supply provides the necessary voltage to run the system. Since the raw voltage from the battery or power source may be too high for the electronics, it is passed through a buck converter, which steps it down to a stable level suitable for the Arduino UNO, NodeMCU, servo motor driver, sensors, and audio modules. This ensures safe and reliable operation of all components.
+
+For movement, the system uses two types of motor control drivers. On one side, an L298 motor driver is dedicated to operating the head and hip motors. These DC motors require direction and speed control, which the L298 driver provides under the instructions of the Arduino. Another L298 motor driver on the right side controls four additional motors (Motor A, B, C, and D). These motors can be used for actuators, limbs, wheels, or any mechanical movements depending on the robot’s design.
+
+Servo movements are handled by the 16-channel servo motor driver (PCA9685). This board is connected to the Arduino/NodeMCU and can drive multiple servo motors simultaneously with precise angle control. The diagram shows eight servo channels (S1–S8), which may be used for arm joints, hand movements, or other motion-oriented parts of the robot.
+
+Sensing the environment is another important part of the system. The ultrasonic sensor provides distance measurement, allowing the robot to detect obstacles or interact with objects. The IR sensor can detect nearby objects, wall edges, or gestures. Both sensors send their data back to the Arduino, which makes decisions based on this feedback—for example, stopping the robot, changing direction, or responding to user interactions.
+
+The audio subsystem includes an SD card reader, a PAM8403 audio amplifier, and a speaker. Audio files stored on the SD card are accessed by the Arduino, which sends the audio signal to the PAM8403 amplifier. After amplification, the sound is played through the speaker, allowing the robot to talk, play music, or give voice responses.
+
+All modules in the diagram are interconnected to form a seamless working system. Commands from the user travel through the internet to the NodeMCU, then to the Arduino. The Arduino interprets these commands, reads sensor inputs, controls DC motors and servo motors, and handles audio playback. The power system ensures all components are safely powered through the buck converter. Overall, the block diagram illustrates a well-structured control system capable of wireless communication, intelligent sensing, movement control, and audio output.
+
+
 # 🏆 Achievements
 
 Presented at multiple National-Level Technical Events.
